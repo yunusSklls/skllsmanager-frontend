@@ -1,7 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Persons } from './persons';
-import { PersonsService } from './persons.service';
+import { Person } from './person';
+
+import { PersonService } from './person.service';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,11 @@ import { PersonsService } from './persons.service';
 })
 export class AppComponent implements OnInit
 {
-  public persons: Persons[];
+  public persons: Person[] = [];
+ 
 
-  constructor( private personsService: PersonsService ) { }
+
+  constructor( private personsService: PersonService ) { }
 
   ngOnInit()
   {
@@ -22,7 +25,7 @@ export class AppComponent implements OnInit
   public getPersons(): void
   {
     this.personsService.getPersons().subscribe(
-      ( response: Persons[]) => {
+      (response: Person[]) => {
         this.persons = response;
       },
       (error: HttpErrorResponse ) => {

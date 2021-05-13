@@ -1,12 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Persons } from './persons';
+import { Person } from './person';
 
-@Injectable({
-    providedIn: 'root'
-})
-export class PersonsService {
+@Injectable({providedIn: 'root'})
+export class PersonService {
     //to pass the url, see in the below functions. An empty string, to pu the url later.
     private apiServerUrl = '';
 
@@ -16,24 +14,24 @@ export class PersonsService {
     // this is going to return an obserable of persons array
     //returning a persons array of the javaScript perspective or from a 
     //java perspective that's just going to be a list or any type of collection
-    public getPersons(): Observable<Persons[]> 
+    public getPersons(): Observable<Person[]> 
     {
         //${...} this is an javascript notation that can be use to put variables, and then string at the same time
-        return this.http.get<Persons[]>(`${this.apiServerUrl}/persons/all`);                
+        return this.http.get<Person[]>(`${this.apiServerUrl}/person/all`);                
     }
 
-    public addPerson( person: Persons ): Observable<Persons> 
+    public addPerson( person: Person ): Observable<Person> 
     {
-        return this.http.post<Persons>(`${this.apiServerUrl}/persons/add`, person);                
+        return this.http.post<Person>(`${this.apiServerUrl}/person/add`, person);                
     }
 
-    public updatePerson( person: Persons ): Observable<Persons> 
+    public updatePerson( person: Person ): Observable<Person> 
     {
-        return this.http.put<Persons>(`${this.apiServerUrl}/persons/update`, person);                
+        return this.http.put<Person>(`${this.apiServerUrl}/person/update`, person);                
     }
 
     public deletePerson( personId: number ): Observable<void> 
     {
-        return this.http.delete<void>(`${this.apiServerUrl}/persons/delete/${personId}`);                
+        return this.http.delete<void>(`${this.apiServerUrl}/person/delete/${personId}`);                
     }
 }
