@@ -12,6 +12,7 @@ import { PersonService } from './person.service';
 })
 export class AppComponent implements OnInit
 {
+  [x: string]: any;
   //variable that's goin to hold all of the persons that coming from the backend as Person Array
   public persons: Person[];
   public editPerson?: Person;
