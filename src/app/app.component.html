@@ -1,49 +1,46 @@
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" style="color:white;">Sklls Personal Manager</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarColor02">
-       <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-             <a class="nav-link" (click)="onOpenModal(null, 'add')">Add Person <span class="sr-only">(current)</span></a>
-          </li>
-       </ul>
-       <form class="form-inline my-2 my-lg-0">
-          <input type="search" (ngModelChange)="searchPersons(key.value)" #key="ngModel" ngModel
-          name="key" id="searchName" class="from-control mr-sm-2" placeholder="Search persons..." required> 
-       </form>
-    </div>
-</nav>
-<div class="container" id="main-container">
-    <div class="row">
-        <div *ngFor="let Person of persons" class="card m-b-30">
-            <div class="col-md-6 col-xl-3">
-                <div class="card-body row">
-                    <div class="col-6">
-                        <a href=""><img src="{{person?.imgUrl}}" alt="" class="img-fluid rounded-circle w-60"></a>
-                    </div>
-                    <div class="col-6 card-title align-self-center mb-0">
-                        <h5>{{person?.firstname}} {{person?.lastname}}</h5>
-                        <p class="m-0">{{person?.location}}</p>
-                    </div>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><i class="fa fa-envelope float-right"></i>{{person?.email}}</li>
-                </ul>
-                <div class="card-body">
-                    <div class="float-right btn-group btn-group-sm">
-                        <a (click)="onOpenModal(person, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
-                        <a (click)="onOpenModal(person, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-            </div>
+   <a class="navbar-brand" style="color:white;">Sklls Personal Manager</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav mr-auto">
+         <li class="nav-item active">
+            <a class="nav-link" (click)="onOpenModal(null, 'add')">Add Person <span class="sr-only">(current)</span></a>
+         </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+         <input type="search" (ngModelChange)="searchPersons(key.value)" #key="ngModel" ngModel
+          name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search persons..." required>
+      </form>
+   </div>
+ </nav>
+ <div class="container" id="main-container">
+   <div class="row">
+     <div *ngFor="let person of persons" class="col-md-6 col-xl-3">
+        <div class="card m-b-30">
+           <div class="card-body row">
+              <div class="col-6">
+                 <a href=""><img src="{{person?.imgUrl}}" alt="" class="img-fluid rounded-circle w-60"></a>
+              </div>
+              <div class="col-6 card-title align-self-center mb-0">
+                 <h5>{{person?.firstname}} {{person?.lastname}}</h5>
+                 <p class="m-0">Location: {{person?.location}}</p>
+              </div>
+           </div>
+           <ul class="list-group list-group-flush">
+              <li class="list-group-item"><i class="fa fa-envelope float-right"></i>{{person?.email}}</li>
+           </ul>
+           <div class="card-body">
+              <div class="float-right btn-group btn-group-sm">
+                 <a (click)="onOpenModal(person, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                 <a (click)="onOpenModal(person, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+              </div>
+           </div>
         </div>
-    </div>
+     </div>
+   </div>
 </div>
-
 <!-- Add Person Modal -->
 <div class="modal fade" id="addPersonModal" tabindex="-1" role="dialog" aria-labelledby="addPersonModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -73,8 +70,8 @@
                <input type="location" ngModel name="location" class="form-control" id="location" placeholder="Location" required>
             </div>
             <div class="form-group">
-               <label for="phone">Image URL</label>
-               <input type="text" ngModel name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL" required>
+               <label for="phone">Img URL</label>
+               <input type="text" ngModel name="imgUrl" class="form-control" id="imgUrl" placeholder="Image URL" required>
             </div>
             <div class="modal-footer">
                <button type="button" id="add-person-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -91,7 +88,7 @@
     <div class="modal-dialog" role="document">
        <div class="modal-content">
           <div class="modal-header">
-             <h5 class="modal-title" id="updatePersonModalLabel">Edit Person {{editPerson?.name}}</h5>
+             <h5 class="modal-title" id="updatePersonModalLabel">Edit Person {{editPerson?.lastname}}</h5>
              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
              <span aria-hidden="true">&times;</span>
              </button>
@@ -116,13 +113,13 @@
                    <input type="text" ngModel="{{editPerson?.location}}" name="location" class="form-control" id="location" placeholder="Location">
                 </div>
                 <div class="form-group">
-                   <label for="phone">Image URL</label>
+                   <label for="phone">Img URL</label>
                    <input type="text" ngModel="{{editPerson?.imgUrl}}" name="imgUrl" class="form-control" id="imgUrl" placeholder="Image URL">
                 </div>
                 <div class="modal-footer">
                    <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
                    <!-- JSON Repräsentation of the person object in editForm.value -->
-                   <button (click)="onUpdateEmloyee(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+                   <button (click)="onUpdatePerson(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
                 </div>
              </form>
           </div>
@@ -141,7 +138,7 @@
              </button>
           </div>
           <div class="modal-body">
-             <p>Are you sure you want to delete Person {{deletePerson?.name}}?</p>
+             <p>Are you sure you want to delete {{deletePerson?.firstname}} {{deletePerson?.lastname}}?</p>
              <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                 <!-- click-Listener set equal to our function -->
