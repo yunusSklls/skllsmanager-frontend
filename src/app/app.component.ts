@@ -71,8 +71,8 @@ export class AppComponent implements OnInit
 
   public onDeletePerson( personId: number | undefined ): void 
   {
-    if( personId != undefined)
-    this.personsService.deletePerson( personId ).subscribe( 
+    if( personId != undefined){
+          this.personsService.deletePerson( personId ).subscribe( 
       ( response: void ) => {
         console.log( response );
         this.getPersons();
@@ -81,6 +81,7 @@ export class AppComponent implements OnInit
         alert( error.message );
       }
      );
+    }
   }
 
   public searchPersons( key: string): void

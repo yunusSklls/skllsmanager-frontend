@@ -7,5 +7,5 @@ export interface Person
     lastname: string;
     location: string;
     email: string;
-    imgUrl: string;
+    imgURL: string;
 }

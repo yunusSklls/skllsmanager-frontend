@@ -21,7 +21,7 @@
         <div class="card m-b-30">
            <div class="card-body row">
               <div class="col-6">
-                 <a href=""><img src="{{person?.imgUrl}}" alt="" class="img-fluid rounded-circle w-60"></a>
+                 <a href=""><img src="{{person?.imgURL}}" alt="" class="img-fluid rounded-circle w-60"></a>
               </div>
               <div class="col-6 card-title align-self-center mb-0">
                  <h5>{{person?.firstname}} {{person?.lastname}}</h5>
@@ -70,8 +70,8 @@
                <input type="location" ngModel name="location" class="form-control" id="location" placeholder="Location" required>
             </div>
             <div class="form-group">
-               <label for="phone">Img URL</label>
-               <input type="text" ngModel name="imgUrl" class="form-control" id="imgUrl" placeholder="Image URL" required>
+               <label for="phone">Imgage URL</label>
+               <input type="text" ngModel name="imgURL" class="form-control" id="imgURL" placeholder="Image URL" required>
             </div>
             <div class="modal-footer">
                <button type="button" id="add-person-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -113,8 +113,8 @@
                    <input type="text" ngModel="{{editPerson?.location}}" name="location" class="form-control" id="location" placeholder="Location">
                 </div>
                 <div class="form-group">
-                   <label for="phone">Img URL</label>
-                   <input type="text" ngModel="{{editPerson?.imgUrl}}" name="imgUrl" class="form-control" id="imgUrl" placeholder="Image URL">
+                   <label for="phone">Image URL</label>
+                   <input type="text" ngModel="{{editPerson?.imgURL}}" name="imgURL" class="form-control" id="imgURL" placeholder="Image URL">
                 </div>
                 <div class="modal-footer">
                    <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
