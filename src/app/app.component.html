@@ -144,6 +144,7 @@
              <p>Are you sure you want to delete Person {{deletePerson?.name}}?</p>
              <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <!-- click-Listener set equal to our function -->
                 <button (click)="onDeletePerson(deletePerson?.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
              </div>
           </div>
