@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({ providedIn: 'root' })
 export class PersonService 
 {
-  //to pass the url whcih was defined in the environment.ts
+  //to pass the url whiCh was defined in the environment.ts
   private apiServerUrl = environment.apiBaseUrl;
 
   constructor( private http: HttpClient ) { }
