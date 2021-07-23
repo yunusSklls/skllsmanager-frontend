@@ -13,7 +13,7 @@ export class PersonService
 
   constructor( private http: HttpClient ) { }
   //interface for the request are going to be returning in Observable< GENERICS >, look persons.ts
-  // this is going to return an obserable of persons array
+  // this is going to return an Observable of persons array
   //returning a persons array of the javaScript perspective or from a 
   //java perspective that's just going to be a list or any type of collection
   public getPersons(): Observable<Person[]> 
